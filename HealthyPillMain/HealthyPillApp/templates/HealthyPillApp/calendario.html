@@ -1,0 +1,68 @@
+{% extends 'HealthyPillApp/Base.html'%}
+
+<link rel='stylesheet' href='static/css/style.css'/>
+
+{% block extraStyle%}
+<style> 
+
+div{
+    text-align:center;
+    background-color: white;
+}
+
+ol{
+    list-style:none;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    padding: 0
+}
+
+li{
+    text-align: right;
+}
+
+.first-day{
+    grid-column-start: 1;
+}
+
+.day-name{
+    background: #eee;
+    font-weight:bold;
+    text-align: center;
+}
+</style>
+
+{% endblock %}
+
+{% block content%}
+<div>
+    <p> {{momento_actual.month}} {{momento_actual.year}} </p>
+    <ol>
+        <li class='day-name'>Lunes</li>
+        <li class='day-name'>Martes</li>
+        <li class='day-name'>Miercoles</li>
+        <li class='day-name'>Jueves</li>
+        <li class='day-name'>Viernes</li>
+        <li class='day-name'>Sabado</li>
+        <li class='day-name'>Domingo</li>
+
+        <li class='first-day'>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+
+    </ol>
+</div>
+{% endblock %}
+

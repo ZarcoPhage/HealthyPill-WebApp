@@ -1,0 +1,44 @@
+{% load static %}
+
+<link
+    rel="stylesheet",
+    type="text/css",
+    href="{% static 'css/bootstrap.css'%}"
+/>
+
+<html>
+
+<head>
+
+    {% block extraStyle%}  {% endblock %}
+
+</head>
+
+<body style="background-color:#FA8072">
+    <nav class="navbar navbar-expand-md navbar-light bg-info">
+        <a class="navbar-brand" href="https://sites.google.com/sansano.usm.cl/healthypillwebpage/inicio">HealthyPill</a>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="http://localhost/base/calendario" > calendario </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"> especialista </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"> perfil </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"> cerrar sesión </a>
+            </li>
+        </ul>
+    </nav>
+
+    {% block content%}
+    {% endblock %}
+</body>
+
+
+
+
+
+</html>
