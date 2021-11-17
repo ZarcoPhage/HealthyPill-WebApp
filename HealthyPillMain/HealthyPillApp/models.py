@@ -10,7 +10,7 @@ class UserProfileManager(BaseUserManager):
 
     def create_user(self, username, email, password=None):
         ''''Crear nuevo userprofile'''
-        user = self.create_user(username, email, password)
+        #user = self.create_user(username, email, name, password)
         if not email:
             raise ValueError('Debe ingresar un correo')
         
@@ -21,8 +21,8 @@ class UserProfileManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-    def create_superuser(self, username, password, email=None):
-        user = self.create_user(username, password, email)
+    def create_superuser(self, username, email, password):
+        user = self.create_user(username, email, password)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
@@ -40,27 +40,13 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     is_pacient = models.BooleanField(default=False)
     is_specialist = models.BooleanField(default=False)
 
+
     objects = UserProfileManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
-    #REQUIRED_FIELDS = ['name', 'email']
-    
-    def __str__(self):
+
+    def get_username(self):
         ''''Retorna cadena representando al usuario'''
         return self.username
-
-    def __str__(self):
-        ''''Retorna cadena representando al usuario'''
-        return self.email
-
-    #def get_full_name(self):
-    #    ''''Retorna nombre completo'''
-    #    return self.name
-    
-    #def get_short_name(self):
-    #    ''''Retorna nombre corto'''
-    #    return self.name
-
-
-
+   
