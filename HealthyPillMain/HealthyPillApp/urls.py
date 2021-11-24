@@ -6,6 +6,6 @@ from HealthyPillApp import views
 urlpatterns = [
 
     path('', views.base, name="base"),
-    path('calendario/', views.calendario, name="calendario"),
+    path('calendario/', views.CalendarView.as_view(), name='calendario'),
     
 ]

@@ -50,3 +50,8 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
         ''''Retorna cadena representando al usuario'''
         return self.username
    
+class Event(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()

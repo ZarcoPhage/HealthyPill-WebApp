@@ -30,39 +30,49 @@ li{
     font-weight:bold;
     text-align: center;
 }
+.calendar {
+  width: 98%;
+  margin: auto;
+  font-size: 13px;
+}
+
+.calendar tr, .calendar td {
+  border: 1px solid black;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+a {
+  color: #17a2b8;
+}
 </style>
 
 {% endblock %}
 
 {% block content%}
-<div>
-    <p> {{momento_actual.month}} {{momento_actual.year}} </p>
-    <ol>
-        <li class='day-name'>Lunes</li>
-        <li class='day-name'>Martes</li>
-        <li class='day-name'>Miercoles</li>
-        <li class='day-name'>Jueves</li>
-        <li class='day-name'>Viernes</li>
-        <li class='day-name'>Sabado</li>
-        <li class='day-name'>Domingo</li>
-
-        <li class='first-day'>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-
-    </ol>
-</div>
+    {{ calendar }}
 {% endblock %}
 
