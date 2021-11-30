@@ -55,3 +55,5 @@ class Event(models.Model):
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+
+#crear modelo relacionado al especialista (idSpecialist) y usuario (idPacient)

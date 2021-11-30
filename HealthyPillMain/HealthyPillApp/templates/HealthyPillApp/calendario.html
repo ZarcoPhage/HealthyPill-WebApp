@@ -7,7 +7,7 @@
 
 div{
     text-align:center;
-    background-color: white;
+    background-color: #FA8072;
 }
 
 ol{
@@ -68,11 +68,34 @@ ul {
 a {
   color: #17a2b8;
 }
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.btn {
+  outline: none;
+  color: black;
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+}
+
+.clearfix {
+  margin: 15px;
+}
 </style>
 
 {% endblock %}
 
 {% block content%}
+<div class="clearfix">
+	<a class="btn btn-info left" href="{% url 'calendario' %}?{{ prev_month }}"> mes anterior </a>
+	<a class="btn btn-info right" href="{% url 'calendario' %}?{{ next_month }}"> mes siguiente </a>
+</div>
     {{ calendar }}
 {% endblock %}
 
