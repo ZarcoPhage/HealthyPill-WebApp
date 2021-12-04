@@ -18,16 +18,17 @@ from django.urls import path, include
 from HealthyPillMain.views import *
 from HealthyPillApp.views import login, home, registro
 from django.contrib.auth import views as auth_views
-
+from django.contrib.auth.views import logout_then_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludo/', holi),
     path('base/', include('HealthyPillApp.urls')),
-    path('login/', auth_views.LoginView.as_view(template_name='HealthyPillApp/login.html'), #name='login'
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='HealthyPillApp/login.html'), name='login'
     ),
     path('', home),
     path('registro/', registro, name='registro_usuario'),
+    path("logout/", logout_then_login, name="logout"),
 ]
 
 #hola :D
