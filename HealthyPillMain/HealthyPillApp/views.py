@@ -12,6 +12,7 @@ from .models import *
 from .utils import Calendario as C
 from .forms import EventForm
 from calendar import *
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def perfil(request):
 
@@ -46,7 +47,7 @@ def registro(request):
 	context  ={'form': form } 
 	return render(request,'HealthyPillApp/Registrate.html', context)
 
-class CalendarView(generic.ListView):
+class CalendarView(LoginRequiredMixin,generic.ListView):
     model = Event
     template_name = 'HealthyPillApp/calendario.html'
 

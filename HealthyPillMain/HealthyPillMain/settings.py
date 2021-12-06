@@ -130,3 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'HealthyPillApp.UserProfile'
 
 LOGIN_REDIRECT_URL = 'calendario'
+LOGIN_URL = 'login'
