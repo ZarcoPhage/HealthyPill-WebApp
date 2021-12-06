@@ -95,6 +95,7 @@ a {
 <div class="clearfix">
 	<a class="btn btn-info left" href="{% url 'calendario' %}?{{ prev_month }}"> mes anterior </a>
 	<a class="btn btn-info right" href="{% url 'calendario' %}?{{ next_month }}"> mes siguiente </a>
+  <a class="btn btn-info right" href="{% url 'event_new' %}"> nuevo evento </a>
 </div>
     {{ calendar }}
 {% endblock %}

@@ -100,6 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 # Internationalization
@@ -127,3 +128,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'HealthyPillApp.UserProfile'
+
+LOGIN_REDIRECT_URL = 'calendario'

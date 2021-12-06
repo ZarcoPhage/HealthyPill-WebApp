@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from HealthyPillMain.views import *
-from HealthyPillApp.views import login, home, registro
+from HealthyPillApp.views import *
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import logout_then_login
 

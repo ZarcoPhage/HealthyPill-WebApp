@@ -89,7 +89,7 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
 </head>
 <body>
-    <form class="form" method="POST">
+    <form class="form" action="" method="POST">
 
         {% csrf_token %}
         <section class="form-login">
@@ -97,14 +97,16 @@
             <div class='controls'>  
                 <i class="fas fa-user icon"></i>
                 <label for = 'user-name-id'>Usuario</label>
-                {{form.username}}
+                <input type = "text" class="form-control" placeholder = "Nombre de Usuario" name="username">
+                <!--{{form.username}}-->
             </div>
             <div class='controls'>
                 <i class='fas fa-key icon'></i>
                 <label for = 'password-id'>Contraseña</label>
-                {{form.password}}
+                <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                <!--{{form.password}}-->
             </div>
-            <input class="buttons" type="submit" name="" value="INGRESAR">
+            <input class="buttons" type="submit" name="" value="Ingresar">
             <p>¿No tienes una cuenta?<a class="link" href='http://localhost:8000/registro/'> Registrate</a></p>
         </section>
     </form>

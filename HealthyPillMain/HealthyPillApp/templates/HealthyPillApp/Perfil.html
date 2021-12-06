@@ -1,0 +1,119 @@
+{% extends 'HealthyPillApp/Base.html'%}
+
+{% block extraStyle%}
+<style>
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: arial;
+}
+    
+body{
+    background: black;
+}
+    
+.wrapper{
+    background-color: green;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:550px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    vertical-align: middle;
+}
+    
+.wrapper .left{
+    background-color: #0dcaf0;
+    width:35%;
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color:#fff;
+    vertical-align: middle;
+}
+    
+.wrapper .left img{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    vertical-align: middle;
+}
+    
+.wrapper .right{
+    width:65%;
+    background:#D4F7FC;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 1px;
+    padding: 30px 25px;
+}
+    
+.wrapper .right h1{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border-bottom: 5px solid #5A5A5A;
+}
+    
+.wrapper .right .info{
+    margin-bottom: 25px;
+}
+    
+.wrapper .right .info h5{
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #5A5A5A;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+    
+.wrapper .right .info .data{
+    width: 70%
+}
+    
+.wrapper .right .info .data h5{
+    color: #353c4e;
+    margin-bottom: 5px;
+}
+    
+.wrapper .right .info .data p{
+    color: #919aa3;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+    
+</style>
+
+{% endblock %}
+
+{% block content%}
+<html lang="en" dir='' class = 'controls'"ltr">
+    <head>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="left">
+                <i class="fas fa-user"></i>
+                <img scr="" alt="user" width="100">
+            </div>
+            <div class="right">
+                <h1> {{ request.user.username}} </h1>
+                <div class="info">
+                    <div class="data">
+                        <h5>Correo Electronico</h5>
+                        <p>{{request.user.email}}</p>
+                    </div>
+                    <div class="data">
+                        <h5>Telefono</h5>
+                        <p>Aquí va el teléfono</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+{% endblock %}
