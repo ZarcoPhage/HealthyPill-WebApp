@@ -34,10 +34,11 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     ''''Modelo Base de datos para usuarios en el sistema'''
     username = models.CharField(max_length=255, unique=True)
     email = models.EmailField(max_length=255, unique=True)
+    phone = models.CharField(max_length=12)
     #name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    is_pacient = models.BooleanField(default=False)
+    is_pacient = models.BooleanField(default=True)
     is_specialist = models.BooleanField(default=False)
 
 

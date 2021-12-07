@@ -33,6 +33,11 @@ def calendario(request):
 
     return render(request, "HealthyPillApp/calendario.html")
 
+def especialistas(request):
+    users = UserProfile.objects.all()
+
+    return render(request, "HealthyPillApp/ContactosEspecialistas.html", {'users' : users})
+
 def registro(request):
 	if request.method == 'POST':
 		form = UserRegisterForm(request.POST)

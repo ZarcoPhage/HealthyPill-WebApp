@@ -11,7 +11,7 @@
 }
     
 body{
-    background: black;
+    font-family: arial;
 }
     
 .wrapper{
@@ -83,6 +83,16 @@ body{
     margin-bottom: 10px;
     font-size: 13px;
 }
+.wrapper .data .label{
+    color: #919aa3;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.wrapper .data p{
+    color: #919aa3;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
     
 </style>
 
@@ -107,8 +117,8 @@ body{
                         <p>{{request.user.email}}</p>
                     </div>
                     <div class="data">
-                        <h5>Telefono</h5>
-                        <p>Aquí va el teléfono</p>
+                        <h5>Teléfono</h5>
+                        <p>{{request.user.phone}}</p>
                     </div>
                 </div>
             </div>

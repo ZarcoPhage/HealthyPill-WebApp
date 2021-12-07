@@ -1,0 +1,80 @@
+{% extends 'HealthyPillApp/Base.html'%}
+
+{% block extraStyle%}
+<style>
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: arial;
+}
+    
+body{
+    background: black;
+}
+    
+.wrapper{
+    background-color: #ACF2D9;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:1000px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    vertical-align: middle;
+}
+
+.wrapper .left{
+    background-color: #0dcaf0;
+    width:25%;
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color:#fff;
+    vertical-align: middle;
+}
+.wrapper .right{
+    width:75%;
+    background:#D4F7FC;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 1px;
+    padding: 30px 25px;
+}
+        
+    
+</style>
+
+{% endblock %}
+
+{% block content%}
+    <head>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='left'>
+                <ul>
+                    <li>Nombre:</li>
+                    <li>Email:</li>
+                    <li>Cel:</li>
+                </ul>
+            </div>
+            <div class='right'>
+            {% for user in users %}
+                {% if user.is_specialist%}
+                    <ul>
+                        <li>{{user.username}}</li>
+
+                        <li>{{user.email}}</li>
+
+                        <li>{{user.phone}}</li>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </body>
+
+{% endblock %}

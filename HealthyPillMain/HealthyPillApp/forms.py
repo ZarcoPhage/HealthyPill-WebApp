@@ -1,22 +1,23 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import models
+from django.forms.models import ALL_FIELDS
 from HealthyPillApp.models import UserProfile
 from django.forms import ModelForm, DateInput
 from HealthyPillApp.models import Event
 
 
 class UserRegisterForm(UserCreationForm):
+  email = forms.EmailField()
+  password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
+  password2 = forms.CharField(label='Confirma Contraseña', widget=forms.PasswordInput)
+  is_specialist = forms.BooleanField(widget=forms.CheckboxInput, required=False)
+  phone = forms.CharField(label='número telefónico', required=False, widget=forms.NumberInput)
+  class Meta:
+    model = UserProfile
+    fields = ['username', 'email', 'phone', 'password1', 'password2', 'is_specialist']
+    help_texts = {k:'' for k in fields }
 
-	email = forms.EmailField()
-	password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
-	password2 = forms.CharField(label='Confirma Contraseña', widget=forms.PasswordInput)
-
-
-	class Meta:
-		model = UserProfile
-		fields = ['username', 'email', 'password1', 'password2',]
-		help_texts = {k:'' for k in fields }
 
 class EventForm(ModelForm):
   class Meta:
