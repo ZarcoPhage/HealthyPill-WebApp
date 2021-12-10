@@ -1,7 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth import user_logged_in
+from django.contrib.auth.models import AbstractBaseUser, User
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
+from django.http import request
 from django.urls import reverse
 # Create your models here.
 
@@ -50,16 +52,19 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def get_username(self):
         ''''Retorna cadena representando al usuario'''
         return self.username
-   
+    
+    def Get_UserName():
+        return UserProfile.username
+        
 class Event(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)#, related_name='eventos')
 
     @property
     def get_html_url(self):
         url = reverse('event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
 #crear modelo relacionado al especialista (idSpecialist) y usuario (idPacient)
-

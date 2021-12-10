@@ -10,6 +10,7 @@ from django.utils.safestring import mark_safe
 from django.urls import reverse 
 from .models import *
 from .utils import Calendario as C
+#from .utils import reminder as R
 from .forms import EventForm
 from calendar import *
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -99,7 +100,11 @@ def event(request, event_id=None):
         instance = Event()
 
     form = EventForm(request.POST or None, instance=instance)
-    if request.POST and form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('calendario'))
+
+    if request.method == 'POST':
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.user = request.user
+            event.save()
+            return HttpResponseRedirect(reverse('calendario'))
     return render(request, 'HealthyPillApp/event.html', {'form': form})
