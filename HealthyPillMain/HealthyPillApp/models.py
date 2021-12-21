@@ -5,6 +5,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 from django.http import request
 from django.urls import reverse
+from django.utils import timezone
 # Create your models here.
 
 class UserProfileManager(BaseUserManager):
@@ -68,3 +69,11 @@ class Event(models.Model):
         url = reverse('event_edit', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'
 #crear modelo relacionado al especialista (idSpecialist) y usuario (idPacient)
+
+class Notification(models.Model):
+    #just use one type, 1 for event notification
+    notification_type = models.IntegerField() 
+    to_user = models.ForeignKey(UserProfile, related_name='notification_to', on_delete=models.CASCADE, null=True)
+    post = models.ForeignKey('Event', on_delete=models.CASCADE, related_name='+', blank=True, null=True)
+    user_has_seen = models.BooleanField(default=False)
+    date = models.DateTimeField(default=timezone.now)

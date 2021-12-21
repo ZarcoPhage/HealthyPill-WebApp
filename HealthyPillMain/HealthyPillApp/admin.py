@@ -5,3 +5,4 @@ from HealthyPillApp import models
 
 admin.site.register(models.UserProfile)
 admin.site.register(models.Event)
+admin.site.register(models.Notification)

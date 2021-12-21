@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load custom_tags %}
 <link
     rel="stylesheet",
     type="text/css",
@@ -17,9 +17,9 @@
     <nav class="navbar navbar-expand-md navbar-light bg-info">
         <a class="navbar-brand" href="https://sites.google.com/sansano.usm.cl/healthypillwebpage/inicio">HealthyPill</a>
 
+        {% show_notifications %}
           
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="http://localhost:8000/base/calendario" > calendario </a>
             </li>
