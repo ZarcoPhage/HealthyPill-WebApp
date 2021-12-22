@@ -62,8 +62,8 @@
 			{% if notification.post %}
 				{% if notification.notification_type == 1 %}
                     <div class="dropdown-item-parent">
-                        <a href="#"> Hey! verifica el calendario para hoy, tienes fijado: {{ notification.post }} </a>
-                         {% comment "" %}<span class="dropdown-item-close" onclick="removeNotification(`{% url 'notification-delete' notification.pk %}`, `{{ request.path }}`)">&times;</span>{% endcomment %}
+                        <a href="#"> Hey! verifica el calendario para hoy, tienes citas o dosis pendientes! </a>
+                         {% comment "" %}<span class="dropdown-item-close" onclick="removeNotification(`{% url 'notification-delete' notification.pk %}`, `{{ request.path }}`)">&times;</span> PONER ESTO DE VUELTA LUEGO: {{ notification.post }}{% endcomment %}
                     </div>
                 {% endif %}
             {% endif %}
